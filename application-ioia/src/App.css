@@ -1,42 +1,41 @@
+#app {
+  position: relative; /* Permette al contenuto di sovrapporsi al background */
+  opacity: 1; /* Opacità del contenuto */
+  z-index: 1; /* Assicurati che il contenuto sia sopra il background */
+  max-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 #root {
   max-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
+  background: url("../src/assets/ioia-bg.jpg") no-repeat 0 100%;
   padding: 2rem;
   text-align: center;
+  position: relative; /* Necessario per gestire il pseudo-elemento */
+  z-index: 1; /* Mantiene il root sopra il background */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Aggiunta del background con opacità usando ::before */
+#root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white; /* Colore di sfondo */
+  opacity: 0.6; /* Opacità del background */
+  z-index: -1; /* Invia il background dietro al contenuto */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#app::before{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
