@@ -16,8 +16,8 @@
   background: url("../src/assets/ioia-bg.jpg") no-repeat 0 100%;
   padding: 2rem;
   text-align: center;
-  position: relative; /* Necessario per gestire il pseudo-elemento */
-  z-index: 1; /* Mantiene il root sopra il background */
+  position: relative;
+  z-index: 1;
 }
 
 /* Aggiunta del background con opacità usando ::before */
@@ -31,11 +31,4 @@
   background-color: white; /* Colore di sfondo */
   opacity: 0.6; /* Opacità del background */
   z-index: -1; /* Invia il background dietro al contenuto */
-}
-
-#app::before{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }
